@@ -62,7 +62,12 @@ body {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 /* Add a card effect for articles */
 .card {
@@ -84,6 +89,49 @@ body {
   text-align: center;
   background: #ddd;
   margin-top: 20px;
+}
+
+.btn__trigger {
+  transition: box-shadow 300ms ease-in-out;
+  position: fixed;
+  z-index: 10;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: block;
+  border-radius: 50px;
+}
+
+.btn__trigger--views {
+  width: 5rem;
+  height: 5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #673ab7;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 3;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.btn__trigger--views:hover { box-shadow: 0 14px 10px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.24); }
+
+.fa{
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.fa-lg{
+  font-size:1.33333333em;
+  line-height:.75em;
+  vertical-align:-15%
+}
+
+.fa-comments:before {
+  content: "\f086";
 }
 
 

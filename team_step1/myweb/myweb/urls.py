@@ -19,5 +19,6 @@ from chatapp import views
 
 urlpatterns = [
     path('',include('chatapp.urls')),
+    path('chatapp/', include('chatapp.urls')),
     path('admin/', admin.site.urls),
 ]
