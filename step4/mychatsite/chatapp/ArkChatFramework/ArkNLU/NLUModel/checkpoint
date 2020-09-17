@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\sjszz\\GroupProject\\step4\\mychatsite\\chatapp\\ArkChatFramework/ArkNLU/NLUModel/model_home_kr.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\sjszz\\GroupProject\\step4\\mychatsite\\chatapp\\ArkChatFramework/ArkNLU/NLUModel/model_home_kr.tflearn"
