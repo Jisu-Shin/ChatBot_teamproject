@@ -44,7 +44,7 @@ class ChattingHomepage(ChatClient):
         self.previous_slang_matching = False
         self.context_filter_message = "제품과 서비스에 대한 문의 이후에 관련 기술에 대한 설명이 가능합니다."
         self.not_matching_message = "에 대해 이해하지 못했습니다."
-        self.usage_guide_message = "여기서는 음성과 문자 채팅으로 아크위드 주식회사의  vision, mission, 제품, 서비스와 관련된 내용만 채팅이 가능합니다."
+        self.usage_guide_message = "여기서는 음성과 문자 채팅으로 스타필드 코엑스몰점 서비스와 관련된 내용만 채팅이 가능합니다."
 
     def get_answer(self, sentence, userID='123', show_details=False):
 
@@ -65,6 +65,8 @@ class ChattingHomepage(ChatClient):
             else:
                 return sentence
 
+        print(results)
+        except_tag=['greeting','goodbye','thanks','Slang']
         # if we have a classification then find the matching intent tag
         if results:
             # loop as long as there are matches to process
@@ -86,6 +88,19 @@ class ChattingHomepage(ChatClient):
                                 self.slang_matching_count += 1
                             self.previous_slang_matching = True
 
+                        
+                        print(results[0][0] in except_tag)
+
+                        if results[0][0] in except_tag :
+                            if not 'context_filter' in i or \
+                            (userID in self.context and 'context_filter' in i and i['context_filter'] == self.context[userID]):
+                                if show_details: self.logger.debug ('tag:', i['tag'])
+                                # a random response from the intent
+                                return random.choice(i['responses'])
+                            
+                            else:
+                                return self.context_filter_message
+
                         # set context for this intent if necessary
                         if 'context_set' in i:
                             if show_details: self.logger.debug('context:', i['context_set'])
@@ -96,7 +111,19 @@ class ChattingHomepage(ChatClient):
                             (userID in self.context and 'context_filter' in i and i['context_filter'] == self.context[userID]):
                             if show_details: self.logger.debug ('tag:', i['tag'])
                             # a random response from the intent
-                            return random.choice(i['responses'])
+                            print(type(i['responses']))
+                            print(len(i['responses']))
+                            random5 = list()
+                            if len(i['responses']) > 5 :
+                                while (len(random5)!=5):
+                                    rand_re=random.choice(i['responses'])
+                                    if rand_re not in random5 :
+                                        random5.append(rand_re)
+                                    print(rand_re)
+                                    print(random5)    
+                                return random5
+                            else:
+                                return i['responses']
                         else:
                             return self.context_filter_message
     

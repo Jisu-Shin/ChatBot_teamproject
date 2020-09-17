@@ -74,7 +74,11 @@ $.ajax({
 	data: data,
     type: 'post',
     success: function(response){
-		processResponse(parseCommands(response));
+		var reSplit = response.split('\n');
+		for (var i=0; i<5;i++){
+			processResponse(parseCommands(reSplit[i]));
+		}
+		
     },
     error: function(xhr, status, error){
 		// 에코로 대체
@@ -84,15 +88,17 @@ $.ajax({
   });
 }
 function parseCommands(response){ // Response is data from CS server. This processes OOB commands sent from the CS server returning the remaining response w/o oob commands
-	//alert('response : '+ response); 
+
 	var len  = response.length;
 	var i = -1;
+
 	while (++i < len )
 	{
 		if (response.charAt(i) == ' ' || response.charAt(i) == '\t') continue; // starting whitespace
 		if (response.charAt(i) == '[')  break;	                         // we have an oob starter
 		return response;						// there is no oob data 
 	}
+
 	if ( i == len) return response; // no starter found
 	var user = $('#txtUser').val();
      
@@ -176,7 +182,7 @@ function processResponse(response) { // given the final CS text, converts the pa
 		+	'</li>';
 	
 	update(botSaid);
-	speak(response);
+	//speak(response);
 }
 
 //데이트 포멧 
