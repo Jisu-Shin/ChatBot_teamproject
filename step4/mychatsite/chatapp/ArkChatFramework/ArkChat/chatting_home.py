@@ -91,15 +91,17 @@ class ChattingHomepage(ChatClient):
                         
                         print(results[0][0] in except_tag)
 
-                        if results[0][0] in except_tag :
+                        if results[0][0]="카테고리":
                             if not 'context_filter' in i or \
                             (userID in self.context and 'context_filter' in i and i['context_filter'] == self.context[userID]):
                                 if show_details: self.logger.debug ('tag:', i['tag'])
-                                # a random response from the intent
-                                return random.choice(i['responses'])
+                                return i['responses']
                             
                             else:
                                 return self.context_filter_message
+
+                        if results[0][0] in except_tag :
+                            
 
                         # set context for this intent if necessary
                         if 'context_set' in i:
@@ -114,7 +116,7 @@ class ChattingHomepage(ChatClient):
                             print(type(i['responses']))
                             print(len(i['responses']))
                             random5 = list()
-                            if len(i['responses']) > 5 :
+                            if len(i['responses']) > 6 :
                                 while (len(random5)!=5):
                                     rand_re=random.choice(i['responses'])
                                     if rand_re not in random5 :
