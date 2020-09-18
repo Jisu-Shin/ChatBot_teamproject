@@ -39,14 +39,9 @@ def popup_chat_home(request):
     template = loader.get_template('chatapp/popup_mycareer_chatting_screen.html')
     context = {
         'login_success' : False,
-        'initMessages' : ["아크위드 채팅 홈페이지에 오신것을 환영합니다",
-                          "아크위드 홈페이지 설명 챗봇이 회사의  vision, mission, 제품, 서비스, 주요기술, 연락처에 대해 답변합니다."]
+        'initMessages' : ["스타필드 코엑스점 채팅 홈페이지에 오신것을 환영합니다",
+                          "스타필드 코엑스점 챗봇이 제품, 서비스, 주요기술, 연락처에 대해 답변합니다."]
     }
-    # context = {
-    #     'login_success' : False,
-    #     'initMessages' : ["인공지능 기반 업무자동화 RPA 컨설턴트 직무를 찾고 있는 홍길동입니다.",
-    #                       "귀사를 위한 업무자동화 서비스 제공자로서 준비된 저의 역량을 소개해 드리겠습니다."]
-    # }
     return HttpResponse(template.render(context, request))
 
 def call_chatbot(request):

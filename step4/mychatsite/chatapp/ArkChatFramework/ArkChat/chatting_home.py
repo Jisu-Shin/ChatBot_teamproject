@@ -44,7 +44,7 @@ class ChattingHomepage(ChatClient):
         self.previous_slang_matching = False
         self.context_filter_message = "제품과 서비스에 대한 문의 이후에 관련 기술에 대한 설명이 가능합니다."
         self.not_matching_message = "에 대해 이해하지 못했습니다."
-        self.usage_guide_message = "여기서는 음성과 문자 채팅으로 스타필드 코엑스몰점 서비스와 관련된 내용만 채팅이 가능합니다."
+        self.usage_guide_message = "여기서는 음성과 문자 채팅으로 스타필드 코엑스몰과 관련된 내용만 채팅이 가능합니다."
 
     def get_answer(self, sentence, userID='123', show_details=False):
 
