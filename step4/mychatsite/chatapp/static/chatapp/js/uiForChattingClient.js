@@ -75,7 +75,11 @@ $.ajax({
     type: 'post',
     success: function(response){
 		var reSplit = response.split('\n');
-		for (var i=0; i<reSplit.length-1;i++){
+		var size=1;
+		if (reSplit.length>1){
+			size = reSplit.length-1
+		}
+		for (var i=0; i<size;i++){
 			processResponse(parseCommands(reSplit[i]));
 		}
 		

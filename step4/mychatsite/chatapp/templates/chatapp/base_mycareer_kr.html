@@ -318,13 +318,13 @@
     <script src="{% static 'chatapp/js/contact-form.js' %}"></script>
 
     <!-- Chatting Popup Menu -->
-    <a href="" class="btn__trigger btn__trigger--views" id="trigger">
+    <a href="{% url 'popup_chat_home' %}" class="btn__trigger btn__trigger--views trigger-iframe ">
         <i class="fa fa-comments fa-lg"></i>
     </a>
     <ul class="my-nav my-nav--list">
         <div id="wrapper-templates">
             <li class="my-nav__item">
-                <a href="{% url 'popup_chat_home' %}" class="my-nav__link my-nav__link--template trigger-iframe">
+                <a href="{% url 'popup_chat_home' %}" class="">
                     <i class="fa fa-comments fa-fw"></i>
                     ChatBot</a>
             </li>

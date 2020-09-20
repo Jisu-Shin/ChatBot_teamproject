@@ -298,7 +298,7 @@ class NLULearning(LearningModel):
         # Define model and setup tensorboard
         model = tflearn.DNN(net, tensorboard_dir=self.tflearn_logs_dir)
         # Start training (apply gradient descent algorithm)
-        model.fit(self.train_x, self.train_y, n_epoch=1000, batch_size=8, show_metric=True)
+        model.fit(self.train_x, self.train_y, n_epoch=500, batch_size=8, show_metric=True)
         # save the trained model to directory
         model.save(self.tflearn_model_file)
         self.logger.debug("create_tensorflow_learning_model() success... : %s" % self.tflearn_model_file)
