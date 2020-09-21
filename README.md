@@ -10,7 +10,7 @@ gensim                3.8.3
 JPype1                0.7.1  
 konlpy                0.5.2  
 nltk                  3.4.5  
-tensorflow            2.3.0  
+tensorflow            1.14.0  
 Keras                 2.4.3  
 java version "1.8.0_261" 
 
